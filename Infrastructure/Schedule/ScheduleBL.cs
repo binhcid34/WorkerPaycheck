@@ -37,7 +37,8 @@ namespace Tasks.Schedule
             var client = new RestClient($"https://localhost:7101/");
 
             var request = new RestRequest("api/Schedule/sendNow")
-                   .AddJsonBody(employees);
+                   .AddJsonBody(employees)
+                   .AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJUb2tlbiIsImp0aSI6Ijc4ZTQzOWUxLWE3MWItNGNjNC05MmNhLTA4NjQxNjUxYjQzYyIsImlhdCI6IjQvOS8yMDIzIDY6MTQ6MzggUE0iLCJTU0lEIjoiMTFmNzA4OWItMzNlNi0zNzFhLWY4MTctNzAwMGY0NTVmM2Q1IiwiZXhwIjoxNjgxMTUwNDc4LCJpc3MiOiJJc3N1ZXIiLCJhdWQiOiJBdWRpZW5jZSJ9.3SCYCrS-JQAMWop-Ae3Ne8XSMssMa00LfUpEyTiTD-s");
 
             var response = await client.ExecutePostAsync<List<Employee>>(request);
 
